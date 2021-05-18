@@ -3,22 +3,12 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const post = require('../models/post');
 const verify = require('./verifytoken');
-const multer = require('multer');
+
 const user = require('../models/user');
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-      cb(null, './uploads/');
-    },
-    filename: function(req, file, cb) {
-      cb(null,  file.originalname);
-    }
-  });
+
   
   
-  const upload = multer({storage: storage,});
-  router.get('/',   (req, res, next) => {
-    res.send(req.user);
-  });
+  
 //get all the posts
 router.get('/', async  (req, res, next) => {
   

@@ -11,7 +11,7 @@ require('dotenv/config');
 
 //middlwares
 app.use(bodyParser.json());
-app.use('/uploads',express.static('uploads'));
+
 app.use('/posts', postsRoute);
 app.use('/api/user', authRoute);
 
