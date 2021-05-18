@@ -47,24 +47,7 @@ router.post('/',  upload.single('photo'), (req, res,next) => {
     });
     
     
-    posts
-    .save()
-    .then(result => {
-      console.log(result);
-        res.status(201).json({
-        message: "Created post successfully",
-        createdPost: {
-            Name: result.Name,
-            Gender: result.Gender,
-            Email: result.Email,
-            photo:result.photo,
-            _id: result._id,
-            request: {
-                type: 'GET',
-                url: "http://localhost:5000/posts/" + result._id
-            }
-        }
-      });
+    
     })
     .catch(err => {
       console.log(err);
@@ -82,7 +65,7 @@ router.post('/',  upload.single('photo'), (req, res,next) => {
           //res.json({ message: err});
      // });
       
-    });
+    
 
     //specific post
     router.get('/:postId', async (req,res, next) => {
